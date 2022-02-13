@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {Segment,  Card} from 'semantic-ui-react';
-import {Link, NavLink} from "react-router-dom"
+import '../App.css'
  class TenderStatus extends Component {
   constructor(props) {
     super(props);
@@ -115,9 +115,9 @@ weiTOeth=(amount)=>{
          description="This shows the number of requests created by the creator after he/she wished to stop funding.You won't be able to donate after creator makes request."
        />
      </Card.Group>
-     <Segment.Group horizontal>
-       <Segment>Tender Current Balance: {this.state.balance} ETH</Segment>
-   </Segment.Group>
+    
+       <Segment horizontal>Tender Current Balance: {this.state.balance} ETH</Segment>
+
         </div>
     )
   }

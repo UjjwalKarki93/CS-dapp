@@ -83,7 +83,7 @@ contract bcs {
         thisRequest.voters[msg.sender]=true;
         thisRequest.noOfVoters++;
     }
-    function settleRequest(uint _requestNo) public onlydonor{
+    function settleRequest(uint _requestNo) public onlybeneficiary{
         require(raisedAmount>=target);
         Request storage thisRequest=requests[_requestNo];
         require(thisRequest.completed==false,"The request has been completed");

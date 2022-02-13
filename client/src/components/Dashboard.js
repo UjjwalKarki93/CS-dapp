@@ -92,6 +92,7 @@ import TenderLogs from '../dashComponents/TenderLogs';
          account={this.state.account}
           />
       </Route>
+      
 
       <Route exact path="/tenderlog">
       <TenderLogs

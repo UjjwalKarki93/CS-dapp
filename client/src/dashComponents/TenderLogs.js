@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Card } from 'semantic-ui-react'
+import { Card,Icon,Divider } from 'semantic-ui-react'
 import {NavLink,BrowserRouter as Router,Route,Switch} from 'react-router-dom'
 import TenderStatus from '../components/TenderStatus'
 
@@ -30,26 +30,23 @@ export default function TenderLogs(props) {
         <nav>
         <Card.Description>
         <NavLink to="/tenderlog/tenderstatus" classNmae="text-blue" >View Details</NavLink>
-           
-         
-        
         </Card.Description>
-        <label>Amount:
-           <input type="number" labelPosition="right" placeholder='Amount' onChange={(e) => setdValue(e.target.value)}></input>
-         </label>   
-        
-         <button className='ui button green' onClick={clickHandler} 
+         <Divider section></Divider> 
+         <label>Amount:
+           <input type="number"  placeholder='Amount' onChange={(e) => setdValue(e.target.value)}></input>
+         <button className='ui button green'  onClick={clickHandler} 
          >Donate</button>
+         </label>
          
         
         </nav>
-        <i class=" icon sync"></i>
-        <p><button className='ui button blue' onClick={clickRefresh}>Refresh</button></p>
+  
       </Card.Content>
+   
     
      
      
-      
+      <p><button className='ui button blue' onClick={clickRefresh}><Icon name='sync' />Refresh</button></p> 
     </Card>
     
 
