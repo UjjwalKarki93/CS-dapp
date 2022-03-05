@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import 'semantic-ui-css/semantic.min.css';
 import * as serviceWorker from './serviceWorker';
 import Dashboard from './components/Dashboard'
-import TenderStatus from './components/TenderStatus'
+
 
 
 ReactDOM.render(<Dashboard />, document.getElementById('root'));

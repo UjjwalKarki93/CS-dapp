@@ -110,6 +110,7 @@ import TenderLogs from '../dashComponents/TenderLogs';
         contract={this.state.contract}
         account={this.state.account}
         web3={this.state.web3} />
+
       </Route>
 
       <Route path="/aboutus"  component={aboutUS} />

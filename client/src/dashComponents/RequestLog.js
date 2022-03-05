@@ -1,58 +1,55 @@
-import React, { Component } from 'react';
-import { Table,Checkbox,Button} from 'semantic-ui-react';
-import '../App.css'
 
+import React, { useState} from 'react';
+import ShowRequest from '../components/ShowRequest';
 
-export default class RequestLog extends Component {
+ const RequestLog=(props) =>{
+   
+   const[description,setDes]=useState(null)
+   const[amount,setAmount]=useState(null)
+   const[recipient,setRecp]=useState(null)
+   const[refresh,SetRef]=useState(false)
+  
+ const clickHandler=async()=>{
+  
+  await props.contract.methods.createRequests(description,recipient,props.web3.utils.toWei(amount)).send({from:props.account[0]})
+  let f=await props.contract.methods.getreqNo().call()
+  SetRef(!refresh)
+  
+   }
+  
+  return (
+    <div className="ui container center">
+      
+      <h2>REQUEST CREATION </h2>
+      <form className="ui form" type='submit'>
+      
+        <div className="field">
+          <label>Description:</label>
+          <input type="text" name="Target" placeholder="Description" onChange={(e) => setDes(e.target.value)}></input>
+        </div>
+        <div className="field">
+          <label>Amount:</label>
+          <input type="number"  placeholder="Request Amount" onChange={(e) => setAmount(e.target.value)}></input>
+        </div>
+        <div className="field">
+          <label>Recipient:</label>
+          <input type="text" name="Minimum Contribution" placeholder="Payable Address" onChange={(e) => setRecp(e.target.value)}></input>
+        </div>
+      </form>
+      
+      <p></p>
+      <button className='ui button blue' onClick={clickHandler}>Create Request</button>
+      <p></p>
+
+   <ShowRequest
+   contract={props.contract}
+   account={props.account}
+   web3={props.web3} 
+   refresh={refresh}
+   />
  
-  render() {
-    return (
-    <div className='container'>
-     <Table celled compact definition>
-    <Table.Header fullWidth>
-      <Table.Row>
-        <Table.HeaderCell />
-        <Table.HeaderCell>Request_No:</Table.HeaderCell>
-        <Table.HeaderCell>Creator Address</Table.HeaderCell>
-        <Table.HeaderCell>Description</Table.HeaderCell>
-        <Table.HeaderCell>Amount</Table.HeaderCell>
-        <Table.HeaderCell>Recipient</Table.HeaderCell>
-        <Table.HeaderCell>Voters/Donors</Table.HeaderCell>
-      </Table.Row>
-    </Table.Header>
-
-    <Table.Body>
-      <Table.Row>
-        <Table.Cell collapsing>
-          <Checkbox toggle />
-        </Table.Cell>
-        <Table.Cell>John Lilki</Table.Cell>
-        <Table.Cell>September 14, 2013</Table.Cell>
-        <Table.Cell>jhlilk22@yahoo.com</Table.Cell>
-        <Table.Cell>No</Table.Cell>
-        <Table.Cell>No</Table.Cell>
-        <Table.Cell>0/0</Table.Cell>
-      </Table.Row>
-    </Table.Body>
-    <Table.Footer fullWidth>
-      <Table.Row>
-        <Table.HeaderCell />
-        <Table.HeaderCell colSpan='6'>
-          <Button
-            floated='right'
-            icon
-            primary
-            size='small'
-
-          > Make Payment
-          </Button>
-          <Button size='small' color='green'>Vote</Button>
-        </Table.HeaderCell>
-      </Table.Row>
-    </Table.Footer>
-  </Table>
-
-    </div>
-    );
-  }
+         </div>
+  
+  );
 }
+export default RequestLog

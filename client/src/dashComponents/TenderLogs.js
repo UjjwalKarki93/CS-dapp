@@ -34,6 +34,7 @@ export default function TenderLogs(props) {
          <Divider section></Divider> 
          <label>Amount:
            <input type="number"  placeholder='Amount' onChange={(e) => setdValue(e.target.value)}></input>
+           <p></p>
          <button className='ui button green'  onClick={clickHandler} 
          >Donate</button>
          </label>
