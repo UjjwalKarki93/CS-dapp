@@ -33,7 +33,7 @@ const TransactionRow=(props)=> {
 
   return (
     <div className='ui conatiner '>
-      {console.log(datas[0][0])}
+      {console.log("data at [0][0]",datas[0][0])}
         
     <Table compact celled definition >
   <Table.Header>
@@ -57,7 +57,7 @@ const TransactionRow=(props)=> {
 {
   datas.map((e,index)=>(
     
-      <Table.Row key={e}>
+      <Table.Row key={index.toString()}>
         <Table.Cell>
         </Table.Cell>
         <Table.Cell>{index}</Table.Cell>
@@ -66,7 +66,7 @@ const TransactionRow=(props)=> {
         <Table.Cell>{props.web3.utils.fromWei(e[1])}</Table.Cell>
         <Table.Cell>{e[2]}</Table.Cell>
         <Table.Cell>{e[3]}/{e[4]}</Table.Cell>
-      <Table.Cell>{e[0]}</Table.Cell>
+      <Table.Cell>{e[7]}</Table.Cell>
       </Table.Row>
     ))
     

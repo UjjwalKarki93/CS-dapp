@@ -52,6 +52,7 @@ const handler=()=>{
 
       {console.log("render")}
       {console.log(current)}
+      <h2>Request Table:</h2>
   <TransactionRow
          account={props.account}
          contract={props.contract}

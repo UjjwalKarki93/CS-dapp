@@ -144,19 +144,18 @@ contract bcs {
             uint256,
             uint256,
             string memory,
-            address,
-            uint256
+            address
         )
     {
         return (
-            requests[_i].completed,
+             requests[_i].completed,
             requests[_i].value,
             requests[_i].recipient,
             requests[_i].noOfVoters,
             noOfdonors,
             requests[_i].description,
-            beneficiary,
-            numRequests
+            beneficiary
+        
         );
     }
 }
