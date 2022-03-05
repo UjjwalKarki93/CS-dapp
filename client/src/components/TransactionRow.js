@@ -3,6 +3,8 @@ import { Button,Input,Table } from 'semantic-ui-react'
 
 const TransactionRow=(props)=> {
     const[reqNumber,setReq]=useState(null)
+
+
     const datas=JSON.parse(localStorage.getItem("info" || "[]"))
 
 
@@ -31,6 +33,7 @@ const TransactionRow=(props)=> {
 
   return (
     <div className='ui conatiner '>
+      {console.log(datas[0][0])}
         
     <Table compact celled definition >
   <Table.Header>
@@ -48,10 +51,11 @@ const TransactionRow=(props)=> {
   </Table.Header>
 
 
+  <Table.Body>
 
-<Table.Body>
-  {
-    datas.map((e,index)=>(
+
+{
+  datas.map((e,index)=>(
     
       <Table.Row key={e}>
         <Table.Cell>
@@ -65,8 +69,12 @@ const TransactionRow=(props)=> {
       <Table.Cell>{e[0]}</Table.Cell>
       </Table.Row>
     ))
+    
 }
-    </Table.Body>
+</Table.Body>
+  
+
+
 
 
     <Table.Footer fullWidth>

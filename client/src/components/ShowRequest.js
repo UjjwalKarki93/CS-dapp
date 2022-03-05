@@ -1,9 +1,6 @@
-import React,{ useState,useEffect} from 'react'
+import React,{ useState,useEffect,useLayoutEffect} from 'react'
 import TransactionRow from './TransactionRow';
 import '../App.css' 
-
-
-
 
 const ShowRequest=(props)=> {
   const[current,setCurrent]=useState(0) //dummy state
@@ -16,24 +13,28 @@ const ShowRequest=(props)=> {
         return props.contract.methods.getRequeststatus(index).call();
       })
   )
-localStorage.setItem("info",JSON.stringify(info))
+   localStorage.setItem("info",JSON.stringify(info))
+
+
 
     }
 
 
     useEffect(()=>{
 
-      console.log("inside useeffect")
       initialInfo();
       handler();
+      console.log("use effect used as layouteffect")
       
-    })
+    },[])
 
   useEffect(()=>{
+
 
     console.log("inside useeffect")
     initialInfo();
     handler();
+    console.log("useeffect used foe update")
     
   },[props.refresh])
   
@@ -48,13 +49,16 @@ const handler=()=>{
 
   return (
     <div>
-      {current}
-  
+
+      {console.log("render")}
+      {console.log(current)}
   <TransactionRow
          account={props.account}
          contract={props.contract}
          web3={props.web3}
-         />
+         />  
+
+        
  </div> 
   )
 }
