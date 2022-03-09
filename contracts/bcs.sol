@@ -134,28 +134,31 @@ contract bcs {
         );
     }
 
-    function getRequeststatus(uint256 _i)
+   function getRequeststatus(uint256 _i)
         public
         view
         returns (
+          uint256,
             bool,
             uint256,
             address,
             uint256,
-            uint256,
             string memory,
-            address
+            address,
+            uint256
         )
     {
         return (
+          numofregisteredTender,
              requests[_i].completed,
             requests[_i].value,
             requests[_i].recipient,
             requests[_i].noOfVoters,
-            noOfdonors,
             requests[_i].description,
-            beneficiary
+            beneficiary,
+            noOfdonors
         
         );
     }
+   
 }

@@ -24,19 +24,17 @@ const ShowRequest=(props)=> {
 
       initialInfo();
       handler();
-      console.log("use effect used as layouteffect")
+      console.log("use effect used as didmount")
       
     },[])
 
   useEffect(()=>{
 
-
-    console.log("inside useeffect")
     initialInfo();
-    handler();
-    console.log("useeffect used foe update")
+    handler()
+    console.log("useeffect used for update")
     
-  },[props.refresh])
+  },[props.refresh, current])
   
 
 const handler=()=>{
@@ -47,16 +45,17 @@ const handler=()=>{
 
 
 
+
+
   return (
     <div>
-
-      {console.log("render")}
-      {console.log(current)}
       <h2>Request Table:</h2>
+      {console.log("render:current",current)}
   <TransactionRow
          account={props.account}
          contract={props.contract}
          web3={props.web3}
+         current={setCurrent}
          />  
 
         

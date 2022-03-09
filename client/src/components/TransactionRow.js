@@ -1,8 +1,10 @@
 import React,{useState}from 'react'
 import { Button,Input,Table } from 'semantic-ui-react'
+import swal from 'sweetalert';
 
 const TransactionRow=(props)=> {
     const[reqNumber,setReq]=useState(null)
+    const[a,setA]=useState(false)
 
 
     const datas=JSON.parse(localStorage.getItem("info" || "[]"))
@@ -12,10 +14,9 @@ const TransactionRow=(props)=> {
 
         await props.contract.methods.voteRequest(reqNumber).send({
           from: props.account[0]
-
-
         });
-    
+        
+        props.current(!a)
       };
 
 
@@ -24,17 +25,16 @@ const TransactionRow=(props)=> {
 
         await props.contract.methods.settleRequest(reqNumber).send({
           from: props.account[0]
-
-
         });
+        props.current(!a)
+        swal("Succesful Payment", "Please review your recipient account!");
     
       };
 
 
   return (
     <div className='ui conatiner '>
-      {console.log("data at [0][0]",datas[0][0])}
-        
+   
     <Table compact celled definition >
   <Table.Header>
     <Table.Row>
@@ -63,10 +63,11 @@ const TransactionRow=(props)=> {
         <Table.Cell>{index}</Table.Cell>
         <Table.Cell>{e[6]}</Table.Cell>
         <Table.Cell>{e[5]}</Table.Cell>
-        <Table.Cell>{props.web3.utils.fromWei(e[1])}</Table.Cell>
-        <Table.Cell>{e[2]}</Table.Cell>
-        <Table.Cell>{e[3]}/{e[4]}</Table.Cell>
-      <Table.Cell>{e[7]}</Table.Cell>
+        <Table.Cell>{props.web3.utils.fromWei(e[2])}</Table.Cell>
+        <Table.Cell>{e[3]}</Table.Cell>
+        <Table.Cell>{e[4]}/{e[7]}</Table.Cell>
+        <Table.Cell>{String(e[1])}</Table.Cell>
+      
       </Table.Row>
     ))
     

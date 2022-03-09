@@ -10,7 +10,7 @@ import bcs from '../contracts/bcs.json'
 import TenderLogs from '../dashComponents/TenderLogs';
 
 
-let array=new Array(1).fill().map(()=>new Array(7).fill('0')) //this is dummy array of objects used for local storage 
+let array=new Array(1).fill().map(()=>new Array(8).fill('0')) //this is dummy array of objects used for local storage 
 localStorage.setItem("info",JSON.stringify(array))
  class Dashboard extends Component {
    state={account:null,sidebar:true,contract: null,caddress : null,web3:null}
