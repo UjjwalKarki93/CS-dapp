@@ -11,7 +11,7 @@ import ShowRequest from '../components/ShowRequest';
   
  const clickHandler=async()=>{
   
-  await props.contract.methods.createRequests(description,recipient,props.web3.utils.toWei(amount)).send({from:props.account[0]})
+  await props.contract.methods.createRequests(description,recipient,props.web3.utils.toWei(amount)).send({from:props.account})
   let f=await props.contract.methods.getreqNo().call()
   SetRef(!refresh)
   

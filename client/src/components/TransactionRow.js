@@ -13,7 +13,7 @@ const TransactionRow=(props)=> {
     const VoteHandler = async () => {
 
         await props.contract.methods.voteRequest(reqNumber).send({
-          from: props.account[0]
+          from: props.account
         });
         
         props.current(!a)
@@ -24,7 +24,7 @@ const TransactionRow=(props)=> {
     const PaymentHandler = async () => {
 
         await props.contract.methods.settleRequest(reqNumber).send({
-          from: props.account[0]
+          from: props.account
         });
         props.current(!a)
         swal("Succesful Payment", "Please review your recipient account!");

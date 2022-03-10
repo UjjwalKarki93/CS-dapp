@@ -17,7 +17,7 @@ import swal from 'sweetalert';
     alert('Are you sure to deploy your tender ?');
     const targetinWEI=props.web3.utils.toWei(target);
     const mininWEI=props.web3.utils.toWei(min);
-    await props.contract.methods.registerTender(targetinWEI,mininWEI,pdfUrl).send({from:props.account[0]})
+    await props.contract.methods.registerTender(targetinWEI,mininWEI,pdfUrl).send({from:props.account})
     swal({
       title: "Good job!",
       text: "successfuly created!",
@@ -31,7 +31,7 @@ import swal from 'sweetalert';
   }
   return (
     <div className="ui container center">
-      {console.log(props.contract)}
+      {console.log("contractB",props.contract)}
       <h2> Tender GENERATION</h2>
       <form className="ui form" type='submit'>
       

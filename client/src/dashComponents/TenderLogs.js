@@ -15,7 +15,7 @@ export default function TenderLogs(props) {
 
   const clickHandler = async ()=>{
     await props.contract.methods.donate().send(
-      {from : props.account[0],value:props.web3.utils.toWei(dvalue,'ether')})
+      {from : props.account,value:props.web3.utils.toWei(dvalue,'ether')})
   }
    
  console.log("account=",props.account)
