@@ -26,7 +26,7 @@ class App extends Component {
     loggedIn: false,
     username: ''
   };
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name, color: 'red' })
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name, color: 'red',loggedIn: false })
   componentDidMount = async () => {
     try {
       // Get network provider and web3 instance.
@@ -115,7 +115,7 @@ class App extends Component {
   render() {
     const { activeItem, color } = this.state;
     if (!this.state.web3) {
-      return <div>Users are requested to get connected to METAMASK before using this dAPP</div>;
+      return <div>Users are requested to connect this page to your account from metamask befores using this decentralized apllication </div>;
     }
     return (
       <div className="App">
@@ -157,7 +157,7 @@ class App extends Component {
                     active={activeItem === 'sign out'}
                     onClick={this.handleItemClick}
                     as={Link}
-                    to='/sign-out'
+                    to='/'
                   />
                   :
                   <Menu.Item
@@ -199,7 +199,7 @@ class App extends Component {
 
             {
                 this.state.loggedIn ?
-                  <Route path='/dashboard' >
+                  <Route path ='/dashboard' >
                   <Dashboard 
                     web3={this.state.web3}
                     contract={this.state.contractB}
@@ -221,14 +221,9 @@ class App extends Component {
 
             {
               this.state.loggedIn ?
-              <Route path='/sign-out'>
-                    <SignIn
-                      web3={this.state.web3}
-                      contract={this.state.contractA}
-                      account={this.state.account}
-                      signedUp={this.state.signedUp}
-                      userSignedIn={this.userSignedIn}
-                    />
+              <Route exact path='/'>
+                  <Home/>
+  
             </Route>
                 :
                 <Route path='/sign-up' >

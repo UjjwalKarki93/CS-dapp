@@ -9,6 +9,7 @@ import TenderLogs from '../dashComponents/TenderLogs';
 import '../App.css'
 
 
+
 let array=new Array(1).fill().map(()=>new Array(8).fill('0')) //this is dummy array of objects used for local storage 
 localStorage.setItem("info",JSON.stringify(array))
  class Dashboard extends Component {
