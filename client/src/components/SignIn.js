@@ -104,6 +104,11 @@ class SignIn extends Component {
     render() {
         return (
             <div className="sign-up">
+                <div className='title-signin'>
+                <h1 id="home-h1">BLOCKCHAIN BASED CHARITY SYSTEM</h1> <br />
+                <h3 id='home-h3'>A decentralised form of donation</h3>
+                <p></p>
+                </div>
                 Sign in to your account
                 <div className='signup-form'>
                     <Card fluid centered>

@@ -80,7 +80,12 @@ class SignUp extends Component {
     render() {
         return (
             <div className="sign-up">
-                Create an account
+                <div className='title-signin'>
+                    <h1 id="home-h1">BLOCKCHAIN BASED CHARITY SYSTEM</h1> <br />
+                    <h3 id='home-h3'>A decentralised form of donation</h3>
+                    <p></p>
+                </div>
+                Create an Account
                 <div className='signup-form'>
                     <Card fluid centered>
                         <Card.Content>
@@ -111,7 +116,7 @@ class SignUp extends Component {
                                         type='password'
                                         placeholder='password'
                                         value={this.state.password}
-                    
+
                                         onChange={e => this.setState({ password: e.target.value })}
                                     />
                                 </Form.Field>

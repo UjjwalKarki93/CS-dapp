@@ -11,21 +11,24 @@ import SignUp from "./components/SignUp";
 import SignIn from "./components/SignIn"
 import Dashboard from "./components/Dashboard";
 import "./App.css";
+import swal from 'sweetalert'
 
 
 
 class App extends Component {
-  state = { web3: null,
-     account: null,
-     contractA: null,
-     contractB:null,
-     caddress:null,
+  state = {
+    web3: null,
+    account: null,
+    contractA: null,
+    contractB: null,
+    caddress: null,
     balance: null,
     activeItem: 'home',
     signedUp: false,
     loggedIn: false,
     username: ''
   };
+  
   handleItemClick = (e, { name }) => this.setState({ activeItem: name, color: 'red',loggedIn: false })
   componentDidMount = async () => {
     try {
@@ -35,8 +38,11 @@ class App extends Component {
       // Use web3 to get the user's accounts.
       const accounts = await web3.eth.getAccounts();
 
-      window.ethereum.on('accountsChanged',function(accounts){
-        window.location.reload(true)
+      window.ethereum.on('accountsChanged', function (accounts) {
+        swal("Detected Account Change", "You will be signed out...");
+        setTimeout(()=>{
+          window.location.reload(true)
+        },3000)
       })
 
       // Get the AccountVerification contract instance.
@@ -48,19 +54,19 @@ class App extends Component {
       );
 
 
-        
-   // Get the BCS contract instance.
-    const networkIdB = await web3.eth.net.getId();
-    const deployedNetworkB = bcs.networks[networkIdB];
-    const contract2 = new web3.eth.Contract(
-     bcs.abi,
-    deployedNetworkB && deployedNetworkB.address,);
-    const address = deployedNetworkB.address;
+
+      // Get the BCS contract instance.
+      const networkIdB = await web3.eth.net.getId();
+      const deployedNetworkB = bcs.networks[networkIdB];
+      const contract2 = new web3.eth.Contract(
+        bcs.abi,
+        deployedNetworkB && deployedNetworkB.address);
+      const address = deployedNetworkB.address;
 
 
       // Set web3, accounts, and contract to the state, and then proceed with an
       // example of interacting with the contract's methods.
-      this.setState({ web3, account:accounts[0], contractA: contract1,contractB: contract2,caddress:address},this.start);
+      this.setState({ web3, account: accounts[0], contractA: contract1, contractB: contract2, caddress: address }, this.start);
     } catch (error) {
       // Catch any errors for any of the above operations.
       alert(
@@ -71,9 +77,9 @@ class App extends Component {
 
   };
   start = async () => {
-   
-    const { web3,account,contractA,contractB,caddress } = this.state;
-    
+
+    const { web3, account, contractA, contractB, caddress } = this.state;
+
     console.log("web3 =", web3);
     console.log("ContractA =", contractA);
     console.log("ContractB =", contractB);
@@ -82,7 +88,7 @@ class App extends Component {
   };
 
 
- getAccount = async () => {
+  getAccount = async () => {
     if (this.state.web3 !== null || this.state.web3 !== undefined) {
       await window.ethereum.on('accountsChanged', async (accounts) => {
         this.setState({
@@ -115,131 +121,132 @@ class App extends Component {
   render() {
     const { activeItem, color } = this.state;
     if (!this.state.web3) {
-      return <div>Users are requested to connect this page to your account from metamask befores using this decentralized apllication </div>;
+      return <div>
+        <h3>Users are requested to get connected to METAMASK before using this dAPP.</h3>
+      </div>
     }
+    
     return (
       <div className="App">
-      <div className="main-page">
-        <BrowserRouter>
-          <div className="home-nav">
-            <Menu stackable inverted secondary size='large'>
-              <Menu.Item
-                name='home'
-                position='right'
-                color={color}
-                active={activeItem === 'home'}
-                onClick={this.handleItemClick}
-                as={Link}
-                to='/'
-              />
-             
-            
-              {
-                !this.state.loggedIn ?
-                  <Menu.Item
-                    position='right'
-                    name='sign in'
-                    color={color}
-                    active={activeItem === 'sign in'}
-                    onClick={this.handleItemClick}
-                    as={Link}
-                    to='/sign-in'
-                  />
-                  :
-                  console.log('')
-              }
-
-              {
-                this.state.loggedIn ?
-                  <Menu.Item
-                    name='sign out'
-                    color='red'
-                    active={activeItem === 'sign out'}
-                    onClick={this.handleItemClick}
-                    as={Link}
-                    to='/'
-                  />
-                  :
-                  <Menu.Item
-                    name='sign up'
-                    color={color}
-                    active={activeItem === 'sign up'}
-                    onClick={this.handleItemClick}
-                    as={Link}
-                    to='/sign-up'
-                  />
-              }
-            </Menu>
-          </div>
+        <div className="main-page">
+          <BrowserRouter>
+            <div className="home-nav">
+              <Menu stackable inverted secondary size='large'>
+                <Menu.Item
+                  name='home'
+                  position='right'
+                  color={color}
+                  active={activeItem === 'home'}
+                  onClick={this.handleItemClick}
+                  as={Link}
+                  to='/'
+                />
 
 
-          <Switch>
-            <Route exact path='/' >
-              <Home />
-            </Route>
-            
-            {
-              <Route path='/sign-in' >
+                {
+                  !this.state.loggedIn ?
+                    <Menu.Item
+                      position='right'
+                      name='sign in'
+                      color={color}
+                      active={activeItem === 'sign in'}
+                      onClick={this.handleItemClick}
+                      as={Link}
+                      to='/sign-in'
+                    />
+                    :
+                    console.log('')
+                }
+
                 {
                   this.state.loggedIn ?
-                    <Redirect to='/dashboard' />
-                    :
-                    <SignIn
-                      web3={this.state.web3}
-                      contract={this.state.contractA}
-                      account={this.state.account}
-                      signedUp={this.state.signedUp}
-                      userSignedIn={this.userSignedIn}
+                    <Menu.Item
+                      name='sign out'
+                      color='red'
+                      active={activeItem === 'sign out'}
+                      onClick={this.handleItemClick}
+                      as={Link}
+                      to='/'
                     />
-            
+                    :
+                    <Menu.Item
+                      name='sign up'
+                      color={color}
+                      active={activeItem === 'sign up'}
+                      onClick={this.handleItemClick}
+                      as={Link}
+                      to='/sign-up'
+                    />
                 }
-              </Route>
-            }
-            
+              </Menu>
+            </div>
 
-            {
+
+            <Switch>
+              <Route exact path='/' >
+                <Home />
+              </Route>
+
+              {
+                <Route path='/sign-in' >
+                  {
+                    this.state.loggedIn ?
+                      <Redirect to='/dashboard' />
+                      :
+                      <SignIn
+                        web3={this.state.web3}
+                        contract={this.state.contractA}
+                        account={this.state.account}
+                        signedUp={this.state.signedUp}
+                        userSignedIn={this.userSignedIn}
+                      />
+
+                  }
+                </Route>
+              }
+
+
+              {
                 this.state.loggedIn ?
-                  <Route path ='/dashboard' >
-                  <Dashboard 
-                    web3={this.state.web3}
-                    contract={this.state.contractB}
-                    caddress={this.state.caddress}
-                    account={this.state.account}
-                  />
+                  <Route path='/dashboard' >
+                    <Dashboard
+                      web3={this.state.web3}
+                      contract={this.state.contractB}
+                      caddress={this.state.caddress}
+                      account={this.state.account}
+                    />
                   </Route>
                   :
                   <Route path='/sign-up' >
-                  <SignUp
-                    web3={this.state.web3}
-                    contract={this.state.contractA}
-                    account={this.state.account}
-                    accountCreated={this.accountCreated}
-                  />
+                    <SignUp
+                      web3={this.state.web3}
+                      contract={this.state.contractA}
+                      account={this.state.account}
+                      accountCreated={this.accountCreated}
+                    />
 
                   </Route>
               }
 
-            {
-              this.state.loggedIn ?
-              <Route exact path='/'>
-                  <Home/>
-  
-            </Route>
-                :
-                <Route path='/sign-up' >
-                  <SignUp
-                    web3={this.state.web3}
-                    contract={this.state.contractA}
-                    account={this.state.account}
-                    accountCreated={this.accountCreated}
-                  />
-                </Route>
-            }
-          </Switch>
-        </BrowserRouter>
+              {
+                this.state.loggedIn ?
+                  <Route path='/'>
+               <Home />
+                  </Route>
+                  :
+                  <Route path='/sign-up' >
+                    <SignUp
+                      web3={this.state.web3}
+                      contract={this.state.contractA}
+                      account={this.state.account}
+                      accountCreated={this.accountCreated}
+                    />
+                  </Route>
+              }
+            </Switch>
+          </BrowserRouter>
+        </div>
       </div>
-    </div>
-     
     );
   }
 }
