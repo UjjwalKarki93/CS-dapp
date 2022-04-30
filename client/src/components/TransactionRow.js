@@ -46,7 +46,7 @@ const TransactionRow = (props) => {
               <Table.HeaderCell>Amount</Table.HeaderCell>
               <Table.HeaderCell>Recipient</Table.HeaderCell>
               <Table.HeaderCell>Voters/Donors</Table.HeaderCell>
-              <Table.HeaderCell>Payments</Table.HeaderCell>
+              <Table.HeaderCell>Payment Status</Table.HeaderCell>
 
             </Table.Row>
           </Table.Header>

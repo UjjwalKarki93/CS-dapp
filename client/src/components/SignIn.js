@@ -103,10 +103,12 @@ class SignIn extends Component {
     }
     render() {
         return (
-            <div className="sign-up">
-                <div className='title-signin'>
-                <h1 id="home-h1">BLOCKCHAIN BASED CHARITY SYSTEM</h1> <br />
+            <div>
+                <h1 id="home-h1">BLOCKCHAIN BASED CHARITY SYSTEM</h1>
                 <h3 id='home-h3'>A decentralised form of donation</h3>
+            <div className="sign-up">
+
+                <div className='title-signin'>
                 <p></p>
                 </div>
                 Sign in to your account
@@ -169,6 +171,7 @@ class SignIn extends Component {
                             </div>
                     }
                 </div>
+            </div>
             </div>
         );
     }

@@ -5,11 +5,9 @@ import '../App.css';
 class Guideline extends Component {
   render() {
     return (
-      <div>
-        <h1 id="dashboard-h1">BLOCKCHAIN BASED CHARITY SYSTEM</h1>
-        <div className='cheat-arrange'>
-          <h1>GUIDELINE PAGE</h1>
-        </div>
+      <div className='tender_box'>
+      
+          <h1 id="h2">Guidelines:</h1>
       </div>
     );
   }

@@ -45,17 +45,17 @@ body {
 
 .home-nav {
   margin-top: -20px;
-  height: 50;
+  height: 65px;
   background-color: #312e2e;
-  padding-left: 30px;
-  padding-right: 30px;
-  padding-bottom: 200px;
-  font-size: 18px;
+
 }
+
+
+
 
 .sign-up {
   
-  padding-top: 5px;
+  padding-top: -1px;
   font-size: 40px;
   font-weight: 200;
 }
@@ -93,14 +93,11 @@ body {
    height:200px;
 }
 
-.tender_box{
-  margin-top: 25px;
-  margin-left: 195px;
-}
+
 
 .tender_gen{
-  margin-left: 280px;
-  margin-top: 50px;
+  margin-top: -20px;
+  padding-left:100px;
   text-align: left;
 }
 
@@ -136,13 +133,22 @@ li{
 
 #home-h1{
   color: antiquewhite;
-  margin-top: -120px;
+  background-color: #312e2e;
+  padding-top: 100px;
+  padding-left: 350px;
+  font-size: 41px;
 }
 
 #home-h3{
-  color:antiquewhite;
-  margin-top: -25px;
+  color: antiquewhite;
+  background-color: #312e2e;
+  margin-top: -10px;
+  padding-top:20px;
+  font-size: 30px;
 }
+
+
+
 
 #dashboard-h1{
   color: white;
@@ -166,22 +172,21 @@ li{
 }
 
 .request_div{
-  margin-left: 230px;
-  margin-top: 40px;
+  margin-left: 100px;
+  margin-top: 0px;
   text-align: left; 
 }
 
-/* .request-table{
-  margin-left: -15px;
-} */
-
-/* .table-footer{
-  align-items: center;
-} */
 
 h1{
-  align-items: center;
-  color : orange
+    color : orange;
+    text-align:left;
+    padding-left: 100px;
+}
+#h2{
+  color : orange;
+    text-align:left;
+    padding-left: 0px;
 }
 
 img{
@@ -191,14 +196,20 @@ img{
   /* align-items: right; */
 }
 
-#tender-status{
-  margin-left: -290px;
-}
 
 .table-content{
-  font-size:15px;
+  font-size:13px;
+  padding-left:100px;
 }
 
 .tender-status{
-  margin-left: -100px;
+  margin-left: 8px;
 }
+
+.tender_box{
+ height: 2px;
+ padding-left:105px;
+  font-size: 14px;
+}
+
+

@@ -62,12 +62,10 @@ class TenderStatus extends Component {
   render() {
     return (
 
-      <div>
+      <div className='ui container'>
         {console.log("render")}
-
-
-        <h1>Tender Status</h1>
         <div className='tender-status'>
+        <h1 id="h2">Tender Status:</h1>
           <p></p>
 
           <Card.Group>

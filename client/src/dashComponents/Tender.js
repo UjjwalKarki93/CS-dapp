@@ -30,11 +30,9 @@ const Tender = (props) => {
   }
   return (
     <div className="ui container">
-      {console.log(props.contract)}
-      <h1 id="dashboard-h1">BLOCKCHAIN BASED CHARITY SYSTEM</h1>
-      <div className='cheat-arrange'>
+
       <div className='tender_gen'>
-        <h1>Tender Generation:</h1>
+        <h1 id="h2">Tender Generation:</h1>
 
 
           <form className="ui form" type='submit'>
@@ -58,7 +56,6 @@ const Tender = (props) => {
           <button className='ui button blue' onClick={submitHandler}>Create Tender</button>
           {console.log("account=", props.account)}
         </div>
-      </div>
     </div>
   );
 }

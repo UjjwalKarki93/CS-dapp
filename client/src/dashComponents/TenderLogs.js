@@ -22,9 +22,8 @@ export default function TenderLogs(props) {
   console.log("account=", props.account)
   return (
     <div className='ui container center'>
-      <h1 id="dashboard-h1">BLOCKCHAIN BASED CHARITY SYSTEM</h1>
       <div className='cheat-arrange'>
-        <h1>TENDER</h1>
+        <h1>Tender:</h1>
         <div className='tender_box'>
           <Router>
             <Card>
@@ -36,8 +35,8 @@ export default function TenderLogs(props) {
                     <NavLink to="/tenderlog/tenderstatus" classNmae="text-blue" >View Details</NavLink>
                   </Card.Description>
                   <Divider section></Divider>
-                  <label>Amount
-                    <input type="number" placeholder=' Amount(in ETH)' onChange={(e) => setdValue(e.target.value)}></input>
+                  <label>Amount:
+                    <input type="number" placeholder='in ETH' onChange={(e) => setdValue(e.target.value)}></input>
                     <p></p>
                     <button className='ui button green' onClick={clickHandler}
                     >Donate</button>

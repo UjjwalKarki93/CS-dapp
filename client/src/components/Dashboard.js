@@ -47,7 +47,7 @@ class Dashboard extends Component {
 
             <Route exact path="/guideline" component={Guideline} />
 
-            <Route path="/tender">
+            <Route exact path="/tender">
               <Tender
                 web3={this.props.web3}
                 contract={this.props.contract}
@@ -65,7 +65,7 @@ class Dashboard extends Component {
 
             </Route>
 
-            <Route path="/request">
+            <Route exact path="/request">
               <RequestLog
 
                 address={this.props.caddress}
@@ -75,7 +75,7 @@ class Dashboard extends Component {
 
             </Route>
 
-            <Route path="/aboutus" component={aboutUS} />
+            <Route exact path="/aboutus" component={aboutUS} />
 
 
           </Switch>

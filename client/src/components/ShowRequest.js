@@ -49,7 +49,7 @@ const ShowRequest = (props) => {
 
   return (
     <div>
-      <h2>REQUEST TABLE</h2>
+      <h1>Request Information:</h1>
       {console.log("render:current", current)}
       <TransactionRow
         account={props.account}

@@ -6,10 +6,8 @@ class Home extends Component {
     render() {
         return (
             <div>
-                <h1 id="home-h1">BLOCKCHAIN BASED CHARITY SYSTEM</h1> <br />
+                <h1 id="home-h1">BLOCKCHAIN BASED CHARITY SYSTEM</h1>
                 <h3 id='home-h3'>A decentralised form of donation</h3>
-                <p></p>
-                <br></br>
                 <iframe width="1000" height="400" src="https://www.youtube.com/embed/yubzJw0uiE4?autoplay=1" title="YouTube video player" frameborder="0" allow="autoplay" allowfullscreen></iframe>
                 <div className='home-body'>
                     <h3>What is Block Chain?</h3>

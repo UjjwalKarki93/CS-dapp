@@ -19,9 +19,9 @@ const RequestLog = (props) => {
 
   return (
     <div className="ui container center">
-      <h1 id="dashboard-h1">BLOCKCHAIN BASED CHARITY SYSTEM</h1>
+
       <div className='cheat-arrange'>
-        <h1>REQUEST CREATION </h1>
+        <h1>Request Catalog: </h1>
         <div className='request_div'>
           <form className="ui form" type='submit'>
 
