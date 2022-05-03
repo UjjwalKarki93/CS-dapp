@@ -8,13 +8,19 @@ class Home extends Component {
             <div>
                 <h1 id="home-h1">BLOCKCHAIN BASED CHARITY SYSTEM</h1>
                 <h3 id='home-h3'>A decentralised form of donation</h3>
-                <iframe width="1000" height="400" src="https://www.youtube.com/embed/yubzJw0uiE4?autoplay=1" title="YouTube video player" frameborder="0" allow="autoplay" allowfullscreen></iframe>
+               
                 <div className='home-body'>
-                    <h3>What is Block Chain?</h3>
-                    <p>Blockchain is a shared, immutable ledger that facilitates the process of recording transactions and tracking assets in a business network. An asset can be tangible (a house, car, cash, land) or intangible (intellectual property, patents, copyrights, branding). Virtually anything of value can be tracked and 
-                        traded on a blockchain network, reducing risk and cutting costs for all involved.</p>
-                        <h3>Why blockchain is important?</h3>
-                            <p> Business runs on information. The faster it’s received and the more accurate it is, the better. Blockchain is ideal for delivering that information because it provides immediate, shared and completely transparent information stored on an immutable ledger that can be accessed only by permissioned network members. A blockchain network can track orders, payments, accounts, production and much more. And because members share a single view of the truth, you can see all details of a transaction end to end, giving you greater confidence, as well as new efficiencies and opportunities.</p>
+                     <div class="ui vertical stripe segment">
+                        <div class="ui text container">
+                            <h3 class="ui header">What is Block Chain?</h3>
+                            <p>Blockchain is a shared, immutable ledger that facilitates the process of recording transactions and tracking 
+                                assets in a business network. An asset can be tangible (a house, car, cash, land) or intangible 
+                                (intellectual property, patents, copyrights, branding). 
+                               </p>
+                        </div>
+                    </div>
+
+           
                         
                     <div class="ui  stripe segment">
                         
@@ -23,10 +29,14 @@ class Home extends Component {
                             <div class="row">
                                 <div class="eight wide column">
                                     <h3 class="ui header">Accurately target aid</h3>
-                                    <p>Ensure aid goes to the exact individuals who need it,
-                                        checking their identities against the blockchain.</p>
-                                    <h3 class="ui header">We Make Bananas That Can Dance</h3>
-                                    <p>Yes that's right, you thought it was the stuff of dreams, but even bananas can be bioengineered.</p>
+                                <p>
+                                Business runs on information. The faster it’s received and the more accurate it is, the better. 
+                                Blockchain is ideal for delivering that information because it provides immediate, shared and 
+                                completely transparent information stored on an immutable ledger that can be accessed only by permissioned network members.
+            
+              
+                                </p>
+                    
                                 </div>
                               
 
@@ -44,9 +54,9 @@ class Home extends Component {
                                     </p>
                                 </div>
                                 <div class="column">
-                                    <h3>"I should have try this before"</h3>
+                                    <h3>Charity Blockchain</h3>
                                     <p>
-                                        <b></b> Chief Fun Officer Acme Toys
+                                        <b></b> Blockchain Charity Foundation is a non-profit organization dedicated to achieve SDGs through programs funded by cryptocurrency donations.
                                     </p>
                                 </div>
                             </div>
@@ -55,18 +65,15 @@ class Home extends Component {
 
                     <div class="ui vertical stripe segment">
                         <div class="ui text container">
-                            <h3 class="ui header">Breaking The Grid, Grabs Your Attention</h3>
-                            <p>Instead of focusing on content creation and hard work, we have learned how to master the art of doing nothing by providing massive amounts of whitespace and generic content that can seem massive, monolithic and worth your attention.</p>
-                            <a class="ui large button">Read More</a>
-                            <h4 class="ui horizontal header divider">
-                            </h4>
-                            <h3 class="ui header">Did We Tell You About Our Bananas?</h3>
-                            <p>Yes I know you probably disregarded the earlier boasts as non-sequitur filler content, but its really true. It took years of gene splicing and combinatory DNA research, but our bananas can really dance.</p>
-                            <a class="ui large button">I'm Still Quite Interested</a>
+                            <h3 class="ui header">Blockchain Future</h3>
+                            <p>It is expected that blockchain will expand its scope of usability in many more sectors including finance, data analysis, and
+                                 the Internet of Things with the advent of 5G. Usage of the Blockchain system in different sectors apart from cryptocurrencies a
+                                nd NFTs can easily save time, money and solve many problems.</p>
                         </div>
                     </div>
-
                 </div>
+                <br />
+                <iframe width='700' height="400" src="https://www.youtube.com/embed/yubzJw0uiE4?autoplay=1" title="YouTube video player" frameborder="0" allow="" allowfullscreen></iframe>
 
                 <div className='home-footer'>
                     <div class="ui inverted vertical footer segment">
@@ -78,7 +85,6 @@ class Home extends Component {
                                     <div class="ui inverted link list">
                                         <a href="#" class="item">Sitemap</a>
                                         <a href="#" class="item">Contact Us</a>
-
                                         <a href="#" class="item">Gazebo Plans</a>
                                     </div>
                                 </div>

@@ -168,7 +168,7 @@ li{
 }
 
 .home-footer{
-  margin-top: 300px;
+  margin-top: 50px;
 }
 
 .request_div{
@@ -212,4 +212,9 @@ img{
   font-size: 14px;
 }
 
+.about_h1{
+  margin-left: 550px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 

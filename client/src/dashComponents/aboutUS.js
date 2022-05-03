@@ -5,8 +5,12 @@ import '../App.css';
 export default class aboutUS extends Component {
   render() {
     return <div>
+     
+
       <div className='cheat-arrange'>
+      
         <h3 className='aboutUs_h3'>
+        <h1 className='about_h1'>ABOUT</h1>
           This is a minor project developed by KEC (BCT) students 075 batch
         </h3>
 

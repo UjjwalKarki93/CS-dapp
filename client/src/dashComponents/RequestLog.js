@@ -21,7 +21,7 @@ const RequestLog = (props) => {
     <div className="ui container center">
 
       <div className='cheat-arrange'>
-        <h1>Request Catalog: </h1>
+        <h1>Request Catalog </h1>
         <div className='request_div'>
           <form className="ui form" type='submit'>
 

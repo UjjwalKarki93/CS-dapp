@@ -42,7 +42,7 @@ contract bcs {
     }
 
     function donate() public payable {
-          require(raisedAmount <= target);
+          require(raisedAmount < target);
         require(msg.value <= target, "amount greater than target");
         require(numRequests == 0, "raised amount has already mey target");
 

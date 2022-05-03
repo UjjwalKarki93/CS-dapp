@@ -32,7 +32,7 @@ const Tender = (props) => {
     <div className="ui container">
 
       <div className='tender_gen'>
-        <h1 id="h2">Tender Generation:</h1>
+        <h1 id="h2">Tender Generation</h1>
 
 
           <form className="ui form" type='submit'>
