@@ -37,10 +37,12 @@ contract bcs {
         numofregisteredTender++;
     }
 
-    function getreqNo() public view returns (uint) {
+    function getreqNo() public view returns (uint256) {
         return numRequests;
     }
+
     function donate() public payable {
+          require(raisedAmount <= target);
         require(msg.value <= target, "amount greater than target");
         require(numRequests == 0, "raised amount has already mey target");
 
@@ -134,11 +136,11 @@ contract bcs {
         );
     }
 
-   function getRequeststatus(uint256 _i)
+    function getRequeststatus(uint256 _i)
         public
         view
         returns (
-          uint256,
+            uint256,
             bool,
             uint256,
             address,
@@ -149,16 +151,14 @@ contract bcs {
         )
     {
         return (
-          numofregisteredTender,
-             requests[_i].completed,
+            numofregisteredTender,
+            requests[_i].completed,
             requests[_i].value,
             requests[_i].recipient,
             requests[_i].noOfVoters,
             requests[_i].description,
             beneficiary,
             noOfdonors
-        
         );
     }
-   
 }

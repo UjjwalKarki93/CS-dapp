@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, NavLink, Switch, Route } from 'react-router-dom';
-import Guideline from '../dashComponents/Guideline';
 import Tender from '../dashComponents/Tender';
 import '../dashComponents/sidebar.css';
 import aboutUS from '../dashComponents/aboutUS';
@@ -34,7 +33,6 @@ class Dashboard extends Component {
             <button className="hamburger" type="button" onClick={this.showSidebar}><div></div></button>
             <ul onClick={this.showSidebar}>
               <li>DASHBOARD</li>
-              <li><NavLink activeClassName="text-white" to="/guideline" >User Guideline</NavLink></li>
               <li><NavLink to="/tender">Tender Creation</NavLink></li>
               <li><NavLink to="/tenderlog">Tender Logs</NavLink></li>
               <li><NavLink to="/request">Request Logs</NavLink></li>
@@ -44,9 +42,6 @@ class Dashboard extends Component {
 
 
           <Switch>
-
-            <Route exact path="/guideline" component={Guideline} />
-
             <Route exact path="/tender">
               <Tender
                 web3={this.props.web3}
