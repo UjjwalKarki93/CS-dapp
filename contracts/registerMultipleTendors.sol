@@ -1,36 +1,22 @@
-// SPDX-License-Identifier: MIT
-pragma solidity 0.8.11;
-import "./bcs.sol";
+ragma solidity 0.8.11;
+
+// SPDX-License-Identifier: GPL-3.0
+
+import "./tender.sol";
 contract registerMultipleTendors {
     
   
-    address contractaddress;
-    function setContractaddress(address _contractADDRESS) public {
-        contractaddress=_contractADDRESS;
-    }
+     tender[] public TenderAddress;
 
     function createTender(uint _target,uint _minimum,string memory _fileurl) public {
-        bcs contractPointer = bcs(contractaddress);
+
+        tender contractPointer = new tender();
         contractPointer.registerTender(_target,_minimum,_fileurl);
+        TenderAddress.push(contractPointer);
     }
 
-    function getDeployedTender() public view returns (address) {
-        return (contractaddress);
+    function getDeployedTenderaddress()public view returns(tender[] memory){
+        return TenderAddress;
     }
 }
-
-
-//just calling registerTender() of smart contract bcs to create multiple tendors
-/* to do so,
-   1)we created contractpointer which points to bcs through contract address after (bcs) deployment in blockchain
-   2)then accessed registerTender() and passed neccessaary arguments to register tendor
-
-   AS a whole, multiple contract address access means registering multiple tendors  */
-
-
-/* POINT TO BE NOTED
-   1) deploy contract bcs(responsible charity handling and transaction) firstly
-   2) deploy this contract after bcs's deployment
-
-*/
     
